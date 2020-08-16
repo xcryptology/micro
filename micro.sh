@@ -1,12 +1,10 @@
 
 ###micro.sh####
-
+set -e errexit
 ###################################################
 sudo apt-get update && sudo apt-get upgrade -y
 ###################################################
 sudo apt install -y wget git-all net-tools ssh 
-###################################################
-set -e errexit
 ###################################################
 git config --global user.name "xcryptology"
 ###################################################
@@ -18,18 +16,14 @@ sudo apt-get install -y slim
 ###################################################
 sudo apt-get install -y lightdm
 ###################################################
-#tasksel
+tasksel
 ###################################################
 #sudo apt-get install -y kde-plasma-desktop
 #sudo service display_manager start
-###################################################
-sudo tasksel install -y xubuntu-core
-###################################################
-sudo service display_manager start
-###################################################
-sudo apt-get install xfce4 slim
-###################################################
-sudo service slim start
+#sudo tasksel install -y xubuntu-core
+#sudo service display_manager start
+#sudo apt-get install xfce4 slim
+#sudo service slim start
 ###################################################
 cd ~/
 ###################################################
