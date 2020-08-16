@@ -20,10 +20,14 @@ tasksel
 ###################################################
 #sudo apt-get install -y kde-plasma-desktop
 #sudo service display_manager start
-#sudo tasksel install -y xubuntu-core
-#sudo service display_manager start
-#sudo apt-get install xfce4 slim
-#sudo service slim start
+###################################################
+sudo tasksel install -y xubuntu-core
+###################################################
+sudo service display_manager start
+###################################################
+sudo apt-get install xfce4 slim
+###################################################
+sudo service slim start
 ###################################################
 cd ~/
 ###################################################
@@ -39,7 +43,7 @@ sudo apt-get install -y\
 #########################################
 curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
 echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
-sudo apt update && sudo apt install -y signal-desktop
+sudo apt update && sudo apt installb -y signal-desktop
 ########################################################
 sudo apt install -y python2.7 python3.8 python3-pip npm nodejs
 ############################################
@@ -82,7 +86,7 @@ sudo apt update && sudo apt upgrade -y
 ########################################
 cd ~/micro
 #########################################
-#./go.sh
+./go.sh
 #########################################
 bashrcupdated=1
 grep -Pzl '\nexport GOPATH=\$HOME/go\nexport PATH=\$GOPATH/bin:\$PATH\n' ~/.bashrc && bashrcupdated=0 || bashrcupdated=1
