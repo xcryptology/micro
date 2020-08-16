@@ -39,7 +39,7 @@ sudo apt-get install -y\
 #########################################
 curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
 echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
-sudo apt update && sudo apt installb -y signal-desktop
+sudo apt update && sudo apt install -y signal-desktop
 ########################################################
 sudo apt install -y python2.7 python3.8 python3-pip npm nodejs
 ############################################
@@ -80,44 +80,9 @@ docker run docker/whalesay cowsay Hello-World!
 ########################################
 sudo apt update && sudo apt upgrade -y
 ########################################
-cd ~/auto
+cd ~/micro
 #########################################
 #./go.sh
-#########################################
-set -o errexit
-
-if [[ "$1" == "" ]]; then
-  version=1.13.9
-else
-  version=$1
-fi
-
-majorver=$(echo ${version} | cut -d'.' -f1,2)
-pkgfile=go${version}.linux-amd64.tar.gz
-
-if [[ -e /usr/local/go-${majorver} ]]; then
-  echo "ERROR: Folder/file /usr/local/go-${majorver} exists."
-  exit 1
-fi
-
-tmpdir=tmp-go-${version}-$(date +%s)
-mkdir -p ${tmpdir}
-cd ${tmpdir}
-
-wget https://dl.google.com/go/${pkgfile} -O ${pkgfile}
-
-tar xf ${pkgfile}
-sudo mv go /usr/local/go-${majorver}
-
-rm -f ${pkgfile}
-cd ..
-rmdir ${tmpdir}
-
-echo -e "export GOROOT=/usr/local/go-${majorver}\n
-export PATH=\$GOROOT/bin:\$PATH" | sudo tee /etc/profile.d/Z99-go-${majorver}.sh
-
-echo "Installed Go ${majorver}. You can now logout and login again to verify."
-
 #########################################
 bashrcupdated=1
 grep -Pzl '\nexport GOPATH=\$HOME/go\nexport PATH=\$GOPATH/bin:\$PATH\n' ~/.bashrc && bashrcupdated=0 || bashrcupdated=1
