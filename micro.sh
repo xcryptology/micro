@@ -189,8 +189,18 @@ echo "###########c.sh########################"
 #######################################
 #######################################
 #######################################
+sudo apt install debootstrap
+#######################################
+mkdir /tmp/bionic-lxd
+sudo debootstrap bionic /tmp/bionic-lxd
+########################################
+sudo chroot /tmp/bionic-lxd
+wget -qO- https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add -
+echo 'deb https://deb.nodesource.com/node_8.x sid main' > /etc/apt/sources.list.d/nodesource.list
+echo 'deb-src https://deb.nodesource.com/node_8.x sid main' >> /etc/apt/sources.list.d/nodesource.list
+exit
 
-
+sudo tar -cvzf rootfs.tar.gz -C /tmp/bionic-lxd .
 
 
 

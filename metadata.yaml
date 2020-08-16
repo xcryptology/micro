@@ -1,0 +1,8 @@
+architecture: "x86_64"
+creation_date: 1458040200 # To get current date in Unix time, use `date +%s` command
+properties:
+architecture: "x86_64"
+description: "Debian Unstable (sid) with preconfigured Node.js repository (20171227)"
+os: "debian"
+release: "bionic"
+
