@@ -23,15 +23,13 @@ tasksel
 ###################################################
 sudo tasksel install -y xubuntu-core
 ###################################################
-sudo service display_manager start
+sudo apt-get install xfce4 
 ###################################################
-sudo apt-get install xfce4 slim
-###################################################
-sudo service slim start
+#sudo service slim start
 ###################################################
 cd ~/
 ###################################################
-sudo apt-get remove docker docker-engine docker.io containerd runc
+#sudo apt-get remove docker docker-engine docker.io containerd runc
 #########################################
 sudo apt-get update
 #########################################
@@ -45,21 +43,24 @@ curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
 echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
 sudo apt update && sudo apt installb -y signal-desktop
 ########################################################
-sudo apt install -y python2.7 python3.8 python3-pip npm nodejs
+sudo apt install -y python2.7 python3.8 python3-pip npm nodejs singularity \
+singularity-container kubectl
 ############################################
 pip3 install pipenv
 ####################################################
-curl -fsSL https://get.docker.com -o get-docker.sh
+npm install seneca
 ####################################################
-sudo sh get-docker.sh
+#curl -fsSL https://get.docker.com -o get-docker.sh
+####################################################
+#sudo sh get-docker.sh
 ####################################################
 sudo apt-get update
 #########################################
-sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+#sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 ###################################################
-sudo chmod +x /usr/local/bin/docker-compose
+#sudo chmod +x /usr/local/bin/docker-compose
 ###################################################
-sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+#sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 ###################################################
 docker --version
 #######################################
@@ -67,11 +68,11 @@ docker-compose --version
 #######################################
 sudo docker run docker/whalesay cowsay Hello-World!
 #########################################
-(sudo usermod -aG docker $USER) 
+#(sudo usermod -aG docker $USER) 
 ########################################
-(newgrp docker) && (continue)
+#(newgrp docker) && (continue)
 #######################################
-(su -l ${USER}) && (continue)
+#(su -l ${USER}) && (continue)
 #######################################
 #######################################
 #######################################
@@ -196,8 +197,8 @@ sudo debootstrap bionic /tmp/bionic-lxd
 ########################################
 sudo chroot /tmp/bionic-lxd
 wget -qO- https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add -
-echo 'deb https://deb.nodesource.com/node_8.x sid main' > /etc/apt/sources.list.d/nodesource.list
-echo 'deb-src https://deb.nodesource.com/node_8.x sid main' >> /etc/apt/sources.list.d/nodesource.list
+echo 'deb https://deb.nodesource.com/node_8.x bionic main' > /etc/apt/sources.list.d/nodesource.list
+echo 'deb-src https://deb.nodesource.com/node_8.x bionic main' >> /etc/apt/sources.list.d/nodesource.list
 exit
 
 sudo tar -cvzf rootfs.tar.gz -C /tmp/bionic-lxd .
