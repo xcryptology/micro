@@ -16,7 +16,7 @@ sudo apt-get install -y slim
 ###################################################
 sudo apt-get install -y lightdm
 ###################################################
-tasksel
+sudo tasksel
 ###################################################
 #sudo apt-get install -y kde-plasma-desktop
 #sudo service display_manager start
@@ -25,7 +25,7 @@ sudo tasksel install -y xubuntu-core
 ###################################################
 sudo apt-get install xfce4 
 ###################################################
-#sudo service slim start
+sudo service slim start
 ###################################################
 cd ~/
 ###################################################
@@ -41,7 +41,7 @@ sudo apt-get install -y\
 #########################################
 curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
 echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
-sudo apt update && sudo apt installb -y signal-desktop
+sudo apt update && sudo apt install -y signal-desktop
 ########################################################
 sudo apt install -y python2.7 python3.8 python3-pip npm nodejs singularity \
 singularity-container kubectl
